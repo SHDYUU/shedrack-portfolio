@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shedrack Dojillo | Computer Engineering Student & Video Editor </title>
+  <meta name="description"
+    content="Portfolio of Shedrack Dojillo - Computer Engineering Student & Video Editor specializing in high-octane post-production, kinetic typography, and gaming montages.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Interactive Custom Cursor Follower -->
+  <div class="mouse-follower" id="mouse-follower">
+    <div class="mouse-badge" id="mouse-badge">
+      <span id="mouse-text">See preview</span>
+      <i class="fa-solid fa-arrow-up-right" id="mouse-icon"></i>
+    </div>
+  </div>
+
+  <!-- Floating Adaptive Navbar Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-pill-wrapper">
+      <a href="#home" class="nav-logo" aria-label="Home">
+        SD
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#video-portfolio" class="nav-link">Video Edits</a></li>
+        <li><a href="#timeline" class="nav-link">Journey</a></li>
+
+      </ul>
+
+      <a href="#contact" class="btn-rh btn-nav-touch" id="btn-get-in-touch" aria-label="Get in touch">
+        <div class="nav-mail-text-container">
+          <span class="nav-word word-1">Get</span>
+          <span class="nav-word word-2">in</span>
+          <span class="nav-word word-3">touch</span>
+        </div>
+        <div class="circle-yellow" id="circle-mail-wrapper">
+          <i class="fa-solid fa-envelope" id="nav-mail-icon"></i>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section (Light Mode RH Style) -->
+    <section class="section-hero" id="home">
+      <div class="container hero-wrapper">
+
+        <div class="hero-tag-pill">
+          <span class="tag-dot"></span> Shedrack Dojillo — Computer Engineering Student & Video Editor
+        </div>
+
+        <h1 class="hero-title">
+          I help creators & brands grow reach through <span class="highlight-yellow">high-impact video edits</span> and
+          kinetic motion design.
+        </h1>
+
+        <div class="hero-actions-row">
+          <a href="#video-portfolio" class="btn-hero-primary">
+            Explore Video Edits
+            <div class="circle-yellow">
+              <i class="fa-solid fa-arrow-down"></i>
+            </div>
+          </a>
+
+          <div class="stack-badge-pill">
+            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(0, 2)">
+                <path d="M50 50 C35 30 30 10 45 5 C58 2 62 18 50 50Z" fill="url(#dv-red-hero)" />
+                <path d="M50 50 C35 30 30 10 45 5 C58 2 62 18 50 50Z" transform="rotate(120 50 50)"
+                  fill="url(#dv-yellow-hero)" />
+                <path d="M50 50 C35 30 30 10 45 5 C58 2 62 18 50 50Z" transform="rotate(240 50 50)"
+                  fill="url(#dv-cyan-hero)" />
+                <circle cx="50" cy="50" r="6" fill="#0D0D0D" />
+              </g>
+              <defs>
+                <linearGradient id="dv-red-hero" x1="30" y1="5" x2="62" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF4B4B" />
+                  <stop offset="1" stop-color="#FF8533" />
+                </linearGradient>
+                <linearGradient id="dv-yellow-hero" x1="30" y1="5" x2="62" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFD600" />
+                  <stop offset="1" stop-color="#FF9100" />
+                </linearGradient>
+                <linearGradient id="dv-cyan-hero" x1="30" y1="5" x2="62" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00F2FE" />
+                  <stop offset="1" stop-color="#00A8FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+            DaVinci Resolve
+          </div>
+
+          <div class="stack-badge-pill">
+            <svg width="20" height="20" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1.5" y="1.5" width="33" height="33" rx="7" fill="#00005B" stroke="#9999FF" stroke-width="2" />
+              <text x="18" y="24" font-family="'Geist', sans-serif" font-weight="800" font-size="16" fill="#9999FF"
+                text-anchor="middle">Pr</text>
+            </svg>
+            Premiere Pro
+          </div>
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <!-- Infinite Marquee Reel Slider -->
+    <section class="marquee-section">
+      <div class="marquee-container" id="marquee-container" data-cursor="drag">
+        <div class="marquee-track" id="marquee-track">
+          <div class="marquee-slide">
+            <video src="videos/R32_edit.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="marquee-slide">
+            <video src="videos/Valorant_Montage.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="marquee-slide">
+            <video src="videos/R32_edit.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="marquee-slide">
+            <video src="videos/Valorant_Montage.mp4" autoplay loop muted playsinline></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark Sections Wrapper (#0D0D0D) -->
+    <div class="dark-sections" id="dark-zone">
+
+      <!-- Video Editing Portfolio -->
+      <section id="video-portfolio">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">01 // FEATURED WORK</div>
+            <h2 class="section-title">Selected Video Edits</h2>
+            <p class="section-subtitle">Promotional car edits, high-tempo gaming montages, and kinetic post-production
+              crafted with frame-by-frame precision.</p>
+          </div>
+
+          <div class="portfolio-grid" id="video-grid">
+
+            <!-- Video Card 1: Skyline R32 Edit -->
+            <div class="portfolio-card" data-video="videos/R32_edit.mp4" data-cursor="project">
+              <div class="card-media">
+                <video src="videos/R32_edit.mp4" loop muted playsinline preload="auto"></video>
+                <span class="card-badge-top">16:9 • Car Edit</span>
+                <div class="media-overlay">
+                  <div class="play-ring">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Skyline R32 Edit</h3>
+                <p class="card-desc">High-octane car edit featuring dynamic beat-matching, custom speed ramping, kinetic
+                  transitions, and immersive sound design.</p>
+                <div class="tags-row">
+                  <span class="tag">Premiere Pro</span>
+                  <span class="tag">Speed Ramps</span>
+                  <span class="tag">Sound Design</span>
+                </div>
+                <div class="card-footer">
+                  <span class="card-link">Play Video Preview <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Card 2: Valorant Montage -->
+            <div class="portfolio-card" data-video="videos/Valorant_Montage.mp4" data-cursor="project">
+              <div class="card-media">
+                <video src="videos/Valorant_Montage.mp4" loop muted playsinline preload="auto"></video>
+                <span class="card-badge-top">16:9 • Gaming Edit</span>
+                <div class="media-overlay">
+                  <div class="play-ring">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Like Him - Valorant Montage</h3>
+                <p class="card-desc">High-tempo gaming montage featuring synced beat-matching, custom velocity speed
+                  ramps, color grading, and impact SFX.</p>
+                <div class="tags-row">
+                  <span class="tag">Premiere Pro</span>
+                  <span class="tag">Valorant</span>
+                  <span class="tag">Velocity Ramps</span>
+                  <span class="tag">Sound FX</span>
+                </div>
+                <div class="card-footer">
+                  <span class="card-link">Play Video Preview <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic & Professional Journey -->
+      <section id="timeline">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">02 // JOURNEY & MILESTONES</div>
+            <h2 class="section-title">Academic & Engineering Journey</h2>
+            <p class="section-subtitle">Academic background in Computer Engineering Technology combined with practical
+              post-production expertise.</p>
+          </div>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <div class="timeline-date">2023 - PRESENT</div>
+                <h3 class="timeline-title">Bachelor of Engineering Technology Major in Computer Engineering</h3>
+                <div class="timeline-institution">Technological University of the Philippines Visayas</div>
+                <p>Focusing on Microcontroller Systems, Digital Logic Design, Computer Architecture, and Circuit
+                  Analysis.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <div class="timeline-date">2024 - PRESENT</div>
+                <h3 class="timeline-title">Aspiring Video Editor</h3>
+                <div class="timeline-institution">Remote / Content Creators</div>
+                <p>Delivering high-impact video edits, kinetic typography, and gaming montages tailored for client
+                  growth and engagement.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">03 // GET IN TOUCH</div>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">Available for video editing projects, post-production consulting, and
+              engineering internships.</p>
+          </div>
+
+          <div class="contact-grid">
+
+            <div class="contact-info-card">
+              <h3 class="card-title" style="margin-bottom: 28px;">Contact Information</h3>
+
+              <div class="contact-method">
+                <div class="contact-icon-yellow">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <div class="contact-label">Email</div>
+                  <a href="mailto:sdojillo31@gmail.com" class="contact-value">sdojillo31@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon-yellow">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <div class="contact-label">Location</div>
+                  <div class="contact-value">Bacolod City / Remote</div>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon-yellow">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div>
+                  <div class="contact-label">Status</div>
+                  <div class="contact-value">Open for Commissions</div>
+                </div>
+              </div>
+
+              <div style="margin-top: 36px;">
+                <div class="contact-label" style="margin-bottom: 14px;">Social Profiles</div>
+                <div class="social-links">
+                  <a href="https://github.com/SHDYUU" target="_blank" rel="noopener" class="social-btn"
+                    aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn"
+                    aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn"
+                    aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="contact-form-card">
+              <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="d4975d0a-bf83-4ac7-bd1d-0d6fc365aa34">
+                <input type="checkbox" name="botcheck" style="display: none;">
+
+                <div class="form-group">
+                  <label for="form-name" class="form-label">Your Name</label>
+                  <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Alex Rivera"
+                    required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email" class="form-label">Your Email</label>
+                  <input type="email" id="form-email" name="email" class="form-input"
+                    placeholder="e.g. alex@example.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-subject" class="form-label">Subject</label>
+                  <input type="text" id="form-subject" name="subject" class="form-input"
+                    placeholder="e.g. Video Editing Project / Inquiry" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message" class="form-label">Message</label>
+                  <textarea id="form-message" name="message" class="form-textarea"
+                    placeholder="Detail your project or inquiry..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit-yellow">
+                  Send Message <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2026 Shedrack Dojillo • Computer Engineering Student & Video Editor</p>
+        </div>
+      </footer>
+
+    </div>
+
+  </main>
+
+  <!-- Video Lightbox Modal -->
+  <div class="modal-overlay" id="video-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Video Preview</h3>
+        <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-video-wrapper" id="modal-video-wrapper"></div>
+      <div class="modal-body">
+        <p class="modal-details" id="modal-desc">Click play to watch full resolution showcase preview.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div class="toast" id="toast-notification">
+      <span id="toast-message">Message sent successfully!</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
