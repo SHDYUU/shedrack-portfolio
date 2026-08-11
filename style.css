@@ -724,9 +724,14 @@ section {
   width: 100%;
   overflow: hidden;
   cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
-.marquee-container:active {
+.marquee-container:active,
+.marquee-container.dragging {
   cursor: grabbing;
 }
 
@@ -754,6 +759,7 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
 /* --- Dark Sections Wrapper (#0D0D0D) --- */

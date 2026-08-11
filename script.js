@@ -206,6 +206,10 @@ function initMarqueeSlider() {
   let currentTranslate = 0;
   let isDragging = false;
   let lastX = 0;
+  let startX = 0;
+  let startY = 0;
+  let lastY = 0;
+  let isHorizontalDrag = null;
   const speed = 0.8;
 
   function getLoopWidth() {
@@ -267,28 +271,55 @@ function initMarqueeSlider() {
 
   // Touch Dragging
   container.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) return;
     isDragging = true;
-    lastX = e.touches[0].clientX;
+    isHorizontalDrag = null;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    lastX = startX;
+    lastY = startY;
     container.classList.add('dragging');
   }, { passive: true });
 
   window.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
+    if (!isDragging || !e.touches || !e.touches.length) return;
 
-    const deltaX = e.touches[0].clientX - lastX;
-    lastX = e.touches[0].clientX;
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const deltaX = currentX - lastX;
+    const deltaY = currentY - lastY;
 
-    currentTranslate += deltaX;
+    // Detect gesture direction threshold
+    if (isHorizontalDrag === null) {
+      const totalDeltaX = Math.abs(currentX - startX);
+      const totalDeltaY = Math.abs(currentY - startY);
+      if (totalDeltaX > 5 || totalDeltaY > 5) {
+        isHorizontalDrag = totalDeltaX > totalDeltaY;
+      }
+    }
 
-    wrapPosition();
-    updatePosition();
-  }, { passive: true });
+    if (isHorizontalDrag === true) {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+      currentTranslate += deltaX;
+      wrapPosition();
+      updatePosition();
+    }
 
-  window.addEventListener('touchend', () => {
+    lastX = currentX;
+    lastY = currentY;
+  }, { passive: false });
+
+  const stopTouchDrag = () => {
     if (!isDragging) return;
     isDragging = false;
+    isHorizontalDrag = null;
     container.classList.remove('dragging');
-  });
+  };
+
+  window.addEventListener('touchend', stopTouchDrag);
+  window.addEventListener('touchcancel', stopTouchDrag);
 
   window.addEventListener('resize', () => {
     wrapPosition();
