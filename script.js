@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMouseFollower();
   initNavbarScrollObserver();
   initNavMailAnimation();
+  initNavSmoothScroll();
   initMobileMenu();
   initMarqueeSlider();
   initHoverPlayVideos();
@@ -99,9 +100,10 @@ function initNavbarScrollObserver() {
 
     // Highlight active scrollspy link
     let currentId = 'home';
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 150;
-      const sectionHeight = section.clientHeight;
+    const navSections = document.querySelectorAll('section[id]');
+    navSections.forEach((section) => {
+      const sectionTop = section.getBoundingClientRect().top + scrollY - 180;
+      const sectionHeight = section.offsetHeight;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         currentId = section.getAttribute('id');
       }
@@ -134,6 +136,25 @@ function initNavMailAnimation() {
     setTimeout(() => {
       circle.classList.remove('mail-click-anim');
     }, 550);
+  });
+}
+
+/* --- 2c. Smooth Scroll for Nav Links --- */
+function initNavSmoothScroll() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        e.preventDefault();
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
   });
 }
 
@@ -171,74 +192,107 @@ function initMarqueeSlider() {
 
   if (!container || !track) return;
 
-  // Clone slides to ensure infinite seamless loop
+  // Save the original slides before cloning
   const originalSlides = Array.from(track.children);
-  originalSlides.forEach((slide) => {
-    const clone = slide.cloneNode(true);
-    track.appendChild(clone);
-  });
+  if (!originalSlides.length) return;
+
+  // Duplicate original slides 3 times for full viewport coverage
+  for (let i = 0; i < 3; i++) {
+    originalSlides.forEach((slide) => {
+      track.appendChild(slide.cloneNode(true));
+    });
+  }
 
   let currentTranslate = 0;
   let isDragging = false;
-  let startX = 0;
-  let prevTranslate = 0;
-  let animationId = null;
-  const speed = 0.8; // Auto-scroll speed
+  let lastX = 0;
+  const speed = 0.8;
+
+  function getLoopWidth() {
+    return track.scrollWidth / 4;
+  }
+
+  function wrapPosition() {
+    const loopWidth = getLoopWidth();
+    if (!loopWidth) return;
+
+    while (currentTranslate <= -loopWidth) {
+      currentTranslate += loopWidth;
+    }
+
+    while (currentTranslate > 0) {
+      currentTranslate -= loopWidth;
+    }
+  }
+
+  function updatePosition() {
+    track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`;
+  }
 
   function animate() {
     if (!isDragging) {
       currentTranslate -= speed;
-
-      // Loop resetting condition
-      const totalWidth = track.scrollWidth / 2;
-      if (Math.abs(currentTranslate) >= totalWidth) {
-        currentTranslate = 0;
-      }
-
-      track.style.transform = `translateX(${currentTranslate}px)`;
+      wrapPosition();
+      updatePosition();
     }
-
-    animationId = requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
   }
 
-  animationId = requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
 
-  // Touch and Mouse Dragging
+  // Mouse Dragging
   container.addEventListener('mousedown', (e) => {
     isDragging = true;
-    startX = e.clientX;
-    prevTranslate = currentTranslate;
+    lastX = e.clientX;
+    container.classList.add('dragging');
   });
 
   window.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
-    const currentX = e.clientX;
-    const diff = currentX - startX;
-    currentTranslate = prevTranslate + diff;
-    track.style.transform = `translateX(${currentTranslate}px)`;
+
+    const deltaX = e.clientX - lastX;
+    lastX = e.clientX;
+
+    currentTranslate += deltaX;
+
+    wrapPosition();
+    updatePosition();
   });
 
   window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
     isDragging = false;
+    container.classList.remove('dragging');
   });
 
-  // Touch events for mobile
+  // Touch Dragging
   container.addEventListener('touchstart', (e) => {
     isDragging = true;
-    startX = e.touches[0].clientX;
-    prevTranslate = currentTranslate;
+    lastX = e.touches[0].clientX;
+    container.classList.add('dragging');
   }, { passive: true });
 
   window.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-    const currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    currentTranslate = prevTranslate + diff;
-    track.style.transform = `translateX(${currentTranslate}px)`;
+
+    const deltaX = e.touches[0].clientX - lastX;
+    lastX = e.touches[0].clientX;
+
+    currentTranslate += deltaX;
+
+    wrapPosition();
+    updatePosition();
   }, { passive: true });
 
   window.addEventListener('touchend', () => {
+    if (!isDragging) return;
     isDragging = false;
+    container.classList.remove('dragging');
+  });
+
+  window.addEventListener('resize', () => {
+    wrapPosition();
+    updatePosition();
   });
 }
 
@@ -251,7 +305,7 @@ function initHoverPlayVideos() {
     if (!video) return;
 
     card.addEventListener('mouseenter', () => {
-      video.play().catch(() => {});
+      video.play().catch(() => { });
     });
 
     card.addEventListener('mouseleave', () => {
