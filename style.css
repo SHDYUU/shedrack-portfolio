@@ -52,13 +52,13 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--bg-light);
+  background-color: var(--bg-white);
 }
 
 body {
   font-family: var(--font-geist);
   color: var(--text-dark-primary);
-  background-color: var(--bg-light);
+  background-color: var(--bg-white);
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -396,9 +396,46 @@ section {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background-color: var(--bg-light);
+  background-color: var(--bg-white);
   padding-top: 140px;
   padding-bottom: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Seamless Background Portrait Overlay (Reference: Prominent Hero Cutout) */
+.hero-bg-portrait-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  max-width: 680px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  user-select: none;
+}
+
+.hero-bg-portrait-img {
+  height: 95%;
+  max-height: 780px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0.90;
+  filter: contrast(106%) brightness(102%) saturate(105%);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 1) 88%, transparent 100%),
+                      linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 1) 88%, transparent 100%),
+              linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  transition: opacity 0.5s var(--ease-rh), filter 0.5s ease;
 }
 
 .hero-wrapper {
@@ -456,6 +493,20 @@ section {
   z-index: -1;
   border-radius: 2px;
   opacity: 0.7;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-dark-secondary);
+  max-width: 820px;
+  line-height: 1.6;
+  margin-top: -12px;
+  font-weight: 400;
+}
+
+.hero-subtitle strong {
+  color: var(--text-dark-primary);
+  font-weight: 600;
 }
 
 .hero-actions-row {
@@ -1355,6 +1406,24 @@ section {
     width: 34px;
     height: 34px;
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-bg-portrait-wrapper {
+    width: 65%;
+  }
+  .hero-bg-portrait-img {
+    opacity: 0.50;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-bg-portrait-wrapper {
+    width: 90%;
+  }
+  .hero-bg-portrait-img {
+    opacity: 0.30;
   }
 }
 

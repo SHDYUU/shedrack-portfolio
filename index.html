@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shedrack Dojillo | Computer Engineering Student & Video Editor </title>
+  <title>Shedrack Dojillo | Computer Engineering Student, Video Editor & Web Developer</title>
   <meta name="description"
-    content="Portfolio of Shedrack Dojillo - Computer Engineering Student & Video Editor specializing in high-octane post-production, kinetic typography, and gaming montages.">
+    content="Portfolio of Shedrack Dojillo - Computer Engineering Student, Video Editor & Web Developer specializing in high-impact video edits, kinetic typography, and basic website development (HTML, CSS, JavaScript).">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -64,16 +64,26 @@
 
     <!-- Hero Section (Light Mode RH Style) -->
     <section class="section-hero" id="home">
+
+      <!-- Seamless Background Portrait Overlay -->
+      <div class="hero-bg-portrait-wrapper" aria-hidden="true">
+        <img src="images/Whitebackground_pic.png" alt="Shedrack Dojillo" class="hero-bg-portrait-img">
+      </div>
+
       <div class="container hero-wrapper">
 
         <div class="hero-tag-pill">
-          <span class="tag-dot"></span> Shedrack Dojillo — Computer Engineering Student & Video Editor
+          <span class="tag-dot"></span> Shedrack Dojillo — Computer Engineering Student, Video Editor & Web Developer
         </div>
 
         <h1 class="hero-title">
-          I help creators & brands grow reach through <span class="highlight-yellow">high-impact video edits</span> and
-          kinetic motion design.
+          I help creators & brands grow reach through <span class="highlight-yellow">high-impact video edits</span>,
+          kinetic motion design, & basic <span class="highlight-yellow">web development</span>.
         </h1>
+        <!-- 
+        <p class="hero-subtitle">
+          I also develop clean, responsive basic websites using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.
+        </p> -->
 
         <div class="hero-actions-row">
           <a href="#video-portfolio" class="btn-hero-primary">
@@ -119,6 +129,22 @@
             </svg>
             Premiere Pro
           </div>
+
+          <div class="stack-badge-pill">
+            <i class="fa-brands fa-html5" style="color: #E34F26; font-size: 1.15rem;"></i>
+            HTML5
+          </div>
+
+          <div class="stack-badge-pill">
+            <i class="fa-brands fa-css3-alt" style="color: #1572B6; font-size: 1.15rem;"></i>
+            CSS3
+          </div>
+
+          <div class="stack-badge-pill">
+            <i class="fa-brands fa-js"
+              style="color: #F7DF1E; background: #000000; border-radius: 3px; padding: 0 2px; font-size: 1rem;"></i>
+            JavaScript
+          </div>
         </div>
 
 
@@ -135,6 +161,9 @@
           </div>
           <div class="marquee-slide">
             <video src="videos/Valorant_Montage.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="marquee-slide">
+            <video src="videos/quick_layaws.mp4" autoplay loop muted playsinline></video>
           </div>
         </div>
       </div>
@@ -209,6 +238,32 @@
               </div>
             </div>
 
+            <!-- Video Card 3: Quick Layaws Edit -->
+            <div class="portfolio-card" data-video="videos/quick_layaws.mp4" data-cursor="project">
+              <div class="card-media">
+                <video src="videos/quick_layaws.mp4" loop muted playsinline preload="metadata"></video>
+                <span class="card-badge-top">16:9 • Video Edit</span>
+                <div class="media-overlay">
+                  <div class="play-ring">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Short Edit</h3>
+                <p class="card-desc">Dynamic short-form video edit featuring engaging visual cuts, smooth motion pacing,
+                  and refined sound editing.</p>
+                <div class="tags-row">
+                  <span class="tag">DaVinci Resolve</span>
+                  <span class="tag">Motion Design</span>
+                  <span class="tag">Sound Design</span>
+                </div>
+                <div class="card-footer">
+                  <span class="card-link">Play Video Preview <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -217,10 +272,10 @@
       <section id="timeline">
         <div class="container">
           <div class="section-header">
-            <div class="section-tag">02 // JOURNEY & MILESTONES</div>
-            <h2 class="section-title">Academic & Engineering Journey</h2>
+            <div class="section-tag">02 // JOURNEY & SKILLS</div>
+            <h2 class="section-title">Academic & Creative Journey</h2>
             <p class="section-subtitle">Academic background in Computer Engineering Technology combined with practical
-              post-production expertise.</p>
+              web development (HTML, CSS, JavaScript) and post-production expertise.</p>
           </div>
 
           <div class="timeline">
@@ -247,6 +302,23 @@
               </div>
             </div>
 
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <div class="timeline-date">SKILLS & CAPABILITIES</div>
+                <h3 class="timeline-title">Basic Web Development</h3>
+                <div class="timeline-institution">HTML5 • CSS3 • JavaScript</div>
+                <p>Developing clean, responsive, and modern basic websites and interactive web interfaces using HTML,
+                  CSS, and vanilla JavaScript.</p>
+                <div class="tags-row" style="margin-top: 14px;">
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Web Development</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -257,7 +329,7 @@
           <div class="section-header">
             <div class="section-tag">03 // GET IN TOUCH</div>
             <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">Available for video editing projects, post-production consulting, and
+            <p class="section-subtitle">Available for video editing projects, basic web development (HTML/CSS/JS), and
               engineering internships.</p>
           </div>
 
@@ -365,7 +437,7 @@
       <!-- Footer -->
       <footer class="footer">
         <div class="container">
-          <p>&copy; 2026 Shedrack Dojillo • Computer Engineering Student & Video Editor</p>
+          <p>&copy; 2026 Shedrack Dojillo • Computer Engineering Student, Video Editor & Web Developer</p>
         </div>
       </footer>
 
